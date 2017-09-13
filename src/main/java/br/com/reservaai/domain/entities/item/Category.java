@@ -1,4 +1,4 @@
-package br.com.reservaai.domain.entities.reservation;
+package br.com.reservaai.domain.entities.item;
 
 import br.com.reservaai.domain.entities.PersistentEntity;
 import lombok.EqualsAndHashCode;
@@ -21,8 +21,8 @@ import javax.persistence.Table;
 @Entity
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "item_types", schema = "reservation")
-public class ItemType extends PersistentEntity {
+@Table(name = "categories", schema = "item")
+public class Category extends PersistentEntity {
 
     @Getter
     @Setter

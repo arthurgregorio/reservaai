@@ -1,12 +1,11 @@
 package br.com.reservaai;
 
 import br.com.reservaai.domain.entities.PersistentEntity;
-import br.com.reservaai.infrastructure.Configuration;
+import br.com.reservaai.infrastructure.spring.Configuration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.annotation.Persistent;
 
 /**
  * The application base class, here we start everything!

@@ -1,6 +1,7 @@
 package br.com.reservaai.domain.entities.reservation;
 
 import br.com.reservaai.domain.entities.PersistentEntity;
+import br.com.reservaai.domain.entities.item.Item;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

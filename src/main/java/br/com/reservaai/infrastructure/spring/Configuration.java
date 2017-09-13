@@ -1,4 +1,4 @@
-package br.com.reservaai.infrastructure;
+package br.com.reservaai.infrastructure.spring;
 
 /**
  * @author Arthur Gregorio

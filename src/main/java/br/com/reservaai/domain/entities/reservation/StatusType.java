@@ -1,26 +1,26 @@
 package br.com.reservaai.domain.entities.reservation;
 
 /**
- * This enum represents the state of our item
+ * This enum represents the status of a reservation
  *
  * @author Arthur Gregorio
  *
  * @version 1.0.0
  * @since 1.0.0, 12/09/2017
  */
-public enum ItemStatus {
+public enum StatusType {
 
-    BLOCKED("item-status.blocked"),
-    AVAILABLE("item-status.available"),
-    UNAVAILABLE("item-status.unavailable"),
-    IN_MAINTENANCE("item-status.in-maintenance");
+    AWAITING("status-type.awaiting"),
+    CONFIRMED("status-type.confirmed"),
+    REJECTED("status-type.rejected"),
+    CANCELLED("status-type.cancelled");
 
     private final String description;
 
     /**
      * @param description the description for this enum
      */
-    ItemStatus(String description) {
+    StatusType(String description) {
         this.description = description;
     }
 

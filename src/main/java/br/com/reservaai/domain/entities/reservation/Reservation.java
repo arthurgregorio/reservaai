@@ -2,15 +2,13 @@ package br.com.reservaai.domain.entities.reservation;
 
 import br.com.reservaai.application.utils.RandomCodeGenerator;
 import br.com.reservaai.domain.entities.PersistentEntity;
+import br.com.reservaai.domain.entities.item.Item;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collections;
@@ -50,6 +48,12 @@ public class Reservation extends PersistentEntity {
     @Setter
     @Column(name = "end_time", nullable = false)
     private LocalTime endTime;
+
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "fk_status")
+    private Status status;
 
     @Transient
     private Set<ReservationItem> reservationItems;

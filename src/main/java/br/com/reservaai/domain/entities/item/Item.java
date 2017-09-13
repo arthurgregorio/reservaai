@@ -1,7 +1,8 @@
-package br.com.reservaai.domain.entities.reservation;
+package br.com.reservaai.domain.entities.item;
 
 import br.com.reservaai.application.utils.RandomCodeGenerator;
 import br.com.reservaai.domain.entities.PersistentEntity;
+import br.com.reservaai.domain.entities.reservation.Status;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +21,7 @@ import javax.persistence.*;
 @Entity
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "items", schema = "reservation")
+@Table(name = "items", schema = "item")
 public class Item extends PersistentEntity {
 
     @Getter
@@ -37,15 +38,14 @@ public class Item extends PersistentEntity {
 
     @Getter
     @Setter
-    @Enumerated(EnumType.STRING)
-    @Column(name = "item_status", nullable = false)
-    private ItemStatus itemStatus;
-
+    @ManyToOne
+    @JoinColumn(name = "fk_state")
+    private State state;
     @Getter
     @Setter
     @ManyToOne
-    @JoinColumn(name = "fk_item_type")
-    private ItemType itemType;
+    @JoinColumn(name = "fk_category")
+    private Category category;
 
     /**
      *
