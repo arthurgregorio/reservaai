@@ -42,7 +42,7 @@ public class Reservation extends PersistentEntity {
     private LocalDate endDate;
     @Getter
     @Setter
-    @Column(name = "end_time", nullable = false)
+    @Column(name = "start_time", nullable = false)
     private LocalTime startTime;
     @Getter
     @Setter

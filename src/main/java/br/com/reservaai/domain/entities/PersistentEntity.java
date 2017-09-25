@@ -1,5 +1,6 @@
 package br.com.reservaai.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -27,6 +28,7 @@ public abstract class PersistentEntity implements IPersistentEntity<Long> {
      * @return
      */
     @Override
+    @JsonIgnore
     public boolean isSaved() {
         return this.id != null && this.id != 0;
     }

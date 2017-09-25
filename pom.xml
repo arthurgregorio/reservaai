@@ -24,6 +24,31 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <active.profile>development</active.profile>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <active.profile>test</active.profile>
+            </properties>
+        </profile>
+        <profile>
+            <id>release</id>
+            <properties>
+                <active.profile>release</active.profile>
+            </properties>
+        </profile>
+    </profiles>
+
+
     <dependencies>
         <!--spring boot-->
         <dependency>
@@ -59,11 +84,18 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!--postgreSQL driver-->
+        <!--postgres driver-->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
+        </dependency>
+
+        <!--hibernate-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-java8</artifactId>
+            <version>5.2.11.Final</version>
         </dependency>
 
         <!--utilities-->
@@ -74,6 +106,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
+            <version>23.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -92,13 +125,31 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <profiles>
+                        <profile>development</profile>
+                        <profile>testing</profile>
+                        <profile>approval</profile>
+                    </profiles>
+                </configuration>
             </plugin>
         </plugins>
     </build>

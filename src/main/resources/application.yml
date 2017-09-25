@@ -1,0 +1,4 @@
+# Definition of the active profile
+spring:
+  profiles:
+    active: @active.profile@

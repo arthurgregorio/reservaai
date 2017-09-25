@@ -1,4 +1,4 @@
-package br.com.reservaai.application.resources;
+package br.com.reservaai.application.resources.item;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0.0
  * @since 1.0.0, 13/09/2017
  */
-@RestController
 public class ItemResource {
 
 }

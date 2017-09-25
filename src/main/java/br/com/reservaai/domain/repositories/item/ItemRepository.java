@@ -1,4 +1,4 @@
-package br.com.reservaai.domain.repositories.reservation;
+package br.com.reservaai.domain.repositories.item;
 
 import br.com.reservaai.domain.entities.item.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
