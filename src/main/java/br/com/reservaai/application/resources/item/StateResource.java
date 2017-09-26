@@ -1,8 +1,8 @@
 package br.com.reservaai.application.resources.item;
 
 import br.com.reservaai.application.utils.RestPreconditions;
-import br.com.reservaai.domain.entities.item.Item;
-import br.com.reservaai.domain.repositories.item.ItemRepository;
+import br.com.reservaai.domain.entities.item.State;
+import br.com.reservaai.domain.repositories.item.StateRepository;
 import com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -18,37 +18,37 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
  * @author Arthur Gregorio
  *
  * @version 1.0.0
- * @since 1.0.0, 13/09/2017
+ * @since 1.0.0, 25/09/2017
  */
 @RestController
-@RequestMapping("/item")
-public class ItemResource {
+@RequestMapping("/state")
+public class StateResource {
 
     @Autowired
-    private ItemRepository itemRepository;
+    private StateRepository stateRepository;
 
     /**
      *
-     * @param item
+     * @param state
      */
     @ResponseBody
     @ResponseStatus(CREATED)
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
-    public Long create(@RequestBody @Validated Item item) {
-        Preconditions.checkNotNull(item);
-        return this.itemRepository.save(item).getId();
+    public Long create(@RequestBody @Validated State state) {
+        Preconditions.checkNotNull(state);
+        return this.stateRepository.save(state).getId();
     }
 
     /**
      *
-     * @param item
+     * @param state
      */
     @ResponseStatus(OK)
     @PutMapping(consumes = APPLICATION_JSON_VALUE)
-    public void update(@RequestBody Item item) {
-        Preconditions.checkNotNull(item);
-        Preconditions.checkNotNull(item.getId());
-        this.itemRepository.save(item);
+    public void update(@RequestBody State state) {
+        Preconditions.checkNotNull(state);
+        Preconditions.checkNotNull(state.getId());
+        this.stateRepository.save(state);
     }
 
     /**
@@ -60,10 +60,10 @@ public class ItemResource {
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable("id") Long id) {
 
-        final Item item = RestPreconditions.checkFound(
-                this.itemRepository.findOne(id));
+        final State state = RestPreconditions.checkFound(
+                this.stateRepository.findOne(id));
 
-        this.itemRepository.delete(item);
+        this.stateRepository.delete(state);
     }
 
     /**
@@ -72,8 +72,8 @@ public class ItemResource {
      */
     @ResponseBody
     @GetMapping(produces = APPLICATION_JSON_VALUE)
-    public List<Item> findAll() {
-        return this.itemRepository.findAll();
+    public List<State> findAll() {
+        return this.stateRepository.findAll();
     }
 
     /**
@@ -83,7 +83,7 @@ public class ItemResource {
      */
     @ResponseBody
     @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
-    public Item findOne(@PathVariable("id") Long id) {
-        return RestPreconditions.checkFound(this.itemRepository.findOne(id));
+    public State findOne(@PathVariable("id") Long id) {
+        return RestPreconditions.checkFound(this.stateRepository.findOne(id));
     }
 }
