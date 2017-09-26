@@ -15,6 +15,7 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 /**
+ * This is the rest resource for categories of items
  *
  * @author Arthur Gregorio
  *
@@ -29,8 +30,9 @@ public class CategoryResource {
     private CategoryRepository categoryRepository;
 
     /**
+     * Create a new category
      *
-     * @param category
+     * @param category the category to create
      */
     @ResponseBody
     @ResponseStatus(CREATED)
@@ -41,8 +43,9 @@ public class CategoryResource {
     }
 
     /**
+     * Update a existing category
      *
-     * @param category
+     * @param category the already saved category, with its id
      */
     @ResponseStatus(OK)
     @PutMapping(consumes = APPLICATION_JSON_VALUE)
@@ -53,8 +56,9 @@ public class CategoryResource {
     }
 
     /**
+     * Delete one category by the given ID
      *
-     * @param id
+     * @param id the id of the category to delete
      */
     @ResponseBody
     @ResponseStatus(OK)
@@ -68,8 +72,9 @@ public class CategoryResource {
     }
 
     /**
+     * Find and list all the categories found in our database
      *
-     * @return
+     * @return the list of categories
      */
     @ResponseBody
     @GetMapping(produces = APPLICATION_JSON_VALUE)
@@ -78,9 +83,10 @@ public class CategoryResource {
     }
 
     /**
+     * Find one category by the given ID
      *
-     * @param id
-     * @return
+     * @param id the id of the category to find
+     * @return the found category
      */
     @ResponseBody
     @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)

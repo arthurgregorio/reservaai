@@ -15,6 +15,8 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 /**
+ * The rest resource for the items
+ *
  * @author Arthur Gregorio
  *
  * @version 1.0.0
@@ -28,8 +30,9 @@ public class ItemResource {
     private ItemRepository itemRepository;
 
     /**
+     * Create an item
      *
-     * @param item
+     * @param item the item to create
      */
     @ResponseBody
     @ResponseStatus(CREATED)
@@ -40,8 +43,9 @@ public class ItemResource {
     }
 
     /**
+     * Update a existing item
      *
-     * @param item
+     * @param item the item to update, with its ID
      */
     @ResponseStatus(OK)
     @PutMapping(consumes = APPLICATION_JSON_VALUE)
@@ -52,8 +56,9 @@ public class ItemResource {
     }
 
     /**
+     * Delete an item by the ID
      *
-     * @param id
+     * @param id the id of the item to delete
      */
     @ResponseBody
     @ResponseStatus(OK)
@@ -67,8 +72,9 @@ public class ItemResource {
     }
 
     /**
+     * Find and list all the items found on the databse
      *
-     * @return
+     * @return the list of items found
      */
     @ResponseBody
     @GetMapping(produces = APPLICATION_JSON_VALUE)
@@ -77,9 +83,10 @@ public class ItemResource {
     }
 
     /**
+     * Find one item by the ID
      *
-     * @param id
-     * @return
+     * @param id the id of the item to search
+     * @return the item found
      */
     @ResponseBody
     @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)

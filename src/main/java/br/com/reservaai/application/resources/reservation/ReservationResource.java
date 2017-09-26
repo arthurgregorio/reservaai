@@ -15,6 +15,8 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 /**
+ * The rest resource for the reservations
+ *
  * @author Arthur Gregorio
  *
  * @version 1.0.0
@@ -28,8 +30,9 @@ public class ReservationResource {
     private ReservationRepository reservationRepository;
 
     /**
+     * Create a new reservation
      *
-     * @param reservation
+     * @param reservation the reservation to create
      */
     @ResponseBody
     @ResponseStatus(CREATED)
@@ -40,8 +43,9 @@ public class ReservationResource {
     }
 
     /**
+     * Update a given reservation
      *
-     * @param reservation
+     * @param reservation the reservation to update with its ID
      */
     @ResponseStatus(OK)
     @PutMapping(consumes = APPLICATION_JSON_VALUE)
@@ -52,8 +56,9 @@ public class ReservationResource {
     }
 
     /**
+     * Delete the reservation by the given ID
      *
-     * @param id
+     * @param id the ID of the reservation to delete
      */
     @ResponseBody
     @ResponseStatus(OK)
@@ -67,8 +72,9 @@ public class ReservationResource {
     }
 
     /**
+     * Find and list all the reservations made on the system
      *
-     * @return
+     * @return the list of reservations
      */
     @ResponseBody
     @GetMapping(produces = APPLICATION_JSON_VALUE)
@@ -77,9 +83,10 @@ public class ReservationResource {
     }
 
     /**
+     * Find one reservation by the given ID
      *
-     * @param id
-     * @return
+     * @param id the ID of the reservation
+     * @return the reservation found
      */
     @ResponseBody
     @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)

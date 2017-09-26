@@ -9,6 +9,8 @@ import lombok.ToString;
 import javax.persistence.*;
 
 /**
+ * The representation of the states of an item
+ *
  * @author Arthur Gregorio
  *
  * @version 1.0.0

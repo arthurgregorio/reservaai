@@ -15,6 +15,8 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 /**
+ * The rest resource for the item state
+ *
  * @author Arthur Gregorio
  *
  * @version 1.0.0
@@ -28,8 +30,9 @@ public class StateResource {
     private StateRepository stateRepository;
 
     /**
+     * Create a new state
      *
-     * @param state
+     * @param state the state to create
      */
     @ResponseBody
     @ResponseStatus(CREATED)
@@ -40,8 +43,9 @@ public class StateResource {
     }
 
     /**
+     * Update a given state
      *
-     * @param state
+     * @param state the state to update with its ID
      */
     @ResponseStatus(OK)
     @PutMapping(consumes = APPLICATION_JSON_VALUE)
@@ -52,8 +56,9 @@ public class StateResource {
     }
 
     /**
+     * Delete a given state by its ID
      *
-     * @param id
+     * @param id the ID of the state to delete
      */
     @ResponseBody
     @ResponseStatus(OK)
@@ -67,8 +72,9 @@ public class StateResource {
     }
 
     /**
+     * Find and list all the available states
      *
-     * @return
+     * @return the list of the available states
      */
     @ResponseBody
     @GetMapping(produces = APPLICATION_JSON_VALUE)
@@ -77,9 +83,10 @@ public class StateResource {
     }
 
     /**
+     * Find one state by the given ID
      *
-     * @param id
-     * @return
+     * @param id the ID of the state
+     * @return the state found
      */
     @ResponseBody
     @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)

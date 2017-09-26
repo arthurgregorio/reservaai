@@ -8,7 +8,7 @@ package br.com.reservaai.application.utils;
  * @version 1.0.0
  * @since 1.0.0, 12/09/2017
  */
-public class RandomCodeGenerator {
+public final class RandomCodeGenerator {
 
     private static final String NUMERIC = "1234567890";
     private static final String ALPHANUMERIC = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
