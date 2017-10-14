@@ -8,8 +8,6 @@ import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -25,8 +23,15 @@ import javax.persistence.Table;
 @Table(name = "roles", schema = "security")
 public class Role extends PersistentEntity implements GrantedAuthority {
 
+    @Setter
+    private String authority;
+
+    /**
+     * {@inheritDoc}
+     * @return
+     */
     @Override
     public String getAuthority() {
-        return null;
+        return this.authority;
     }
 }

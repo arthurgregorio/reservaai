@@ -5,11 +5,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -24,12 +22,20 @@ import java.util.List;
 @Table(name = "groups", schema = "security")
 public class Group extends PersistentEntity {
 
-    private String name;
-    private String description;
-
     @Getter
     @Setter
-    @Fetch(FetchMode.SUBSELECT)
-    @OneToMany(mappedBy = "group", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    private List<Role> roles;
+    private String name;
+    @Getter
+    @Setter
+    private String description;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JoinTable(name = "groups_roles", schema = "security",
+            joinColumns = {
+                @JoinColumn(name = "fk_group", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                @JoinColumn(name = "fk_role", nullable = false, updatable = false)
+            })
+    private Set<Role> roles;
 }
