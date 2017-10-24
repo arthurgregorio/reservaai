@@ -1,7 +1,5 @@
 package br.com.reservaai;
 
-import br.com.reservaai.domain.entities.PersistentEntity;
-import br.com.reservaai.infrastructure.spring.Configuration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -22,7 +20,8 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {
         "br.com.reservaai.domain.services",
         "br.com.reservaai.domain.repositories",
-        "br.com.reservaai.application.resources"
+        "br.com.reservaai.application.resources",
+        "br.com.reservaai.infrastructure.configuration"
 })
 public class Application {
 
