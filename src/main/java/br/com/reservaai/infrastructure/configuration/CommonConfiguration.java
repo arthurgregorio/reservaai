@@ -1,6 +1,6 @@
 package br.com.reservaai.infrastructure.configuration;
 
-import br.com.reservaai.infrastructure.MessageHolder;
+import br.com.reservaai.application.utils.MessageHolder;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

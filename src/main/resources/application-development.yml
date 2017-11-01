@@ -7,7 +7,7 @@ spring:
   jmx.enabled: false
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:32768/reservaai
+    url: jdbc:postgresql://localhost:32777/reservaai
     username: sa_reservaai
     password: sa_reservaai
     hikari:

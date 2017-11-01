@@ -18,7 +18,7 @@ public abstract class PersistentEntity implements IPersistentEntity<Long> {
 
     @Id
     @Getter
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true, updatable = false)
     private Long id;
 

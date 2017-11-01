@@ -1,4 +1,4 @@
-package br.com.reservaai.infrastructure;
+package br.com.reservaai.application.utils;
 
 import lombok.Setter;
 import org.springframework.context.MessageSource;
